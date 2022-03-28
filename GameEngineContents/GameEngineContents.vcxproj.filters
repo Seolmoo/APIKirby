@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="GameKirby.h" />
+    <ClInclude Include="TitleBackGround.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleIntro.h">
+      <Filter>Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Kirby.h">
+      <Filter>Play\Kirby</Filter>
+    </ClInclude>
+    <ClInclude Include="HUBWorld.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Level1.h">
+      <Filter>Level\PlayLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="EndingCredit.h">
+      <Filter>Ending</Filter>
+    </ClInclude>
+    <ClInclude Include="BrontoBurt.h">
+      <Filter>Play\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="WaddleDee.h">
+      <Filter>Play\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="WaddleDoo.h">
+      <Filter>Play\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Play\Kirby</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLevel.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="EndingLevel.h">
+      <Filter>Level</Filter>
+    </ClInclude>
+    <ClInclude Include="Level2.h">
+      <Filter>Level\PlayLevel</Filter>
+    </ClInclude>
+    <ClInclude Include="BossLevel.h">
+      <Filter>Level\PlayLevel</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameKirby.cpp" />
+    <ClCompile Include="TitleBackGround.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleIntro.cpp">
+      <Filter>Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Kirby.cpp">
+      <Filter>Play\Kirby</Filter>
+    </ClCompile>
+    <ClCompile Include="HUBWorld.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Level1.cpp">
+      <Filter>Level\PlayLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="EndingCredit.cpp">
+      <Filter>Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="BrontoBurt.cpp">
+      <Filter>Play\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="WaddleDee.cpp">
+      <Filter>Play\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="WaddleDoo.cpp">
+      <Filter>Play\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Play\Kirby</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleLevel.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="EndingLevel.cpp">
+      <Filter>Level</Filter>
+    </ClCompile>
+    <ClCompile Include="Level2.cpp">
+      <Filter>Level\PlayLevel</Filter>
+    </ClCompile>
+    <ClCompile Include="BossLevel.cpp">
+      <Filter>Level\PlayLevel</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Title">
+      <UniqueIdentifier>{c2bb12f5-97ad-4091-aba8-17f9e90a6928}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play">
+      <UniqueIdentifier>{e4d2022f-5814-4ba5-84f4-31602b23910f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level">
+      <UniqueIdentifier>{65a64313-a2b1-479e-98cc-440652cd4794}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\PlayLevel">
+      <UniqueIdentifier>{42a5fa97-1a4b-45cc-9fd0-adee6987f1df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ending">
+      <UniqueIdentifier>{3db1efcd-393b-4c74-9672-ed92b35db4f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Enemies">
+      <UniqueIdentifier>{a505ca0a-94df-40e6-88a0-d5cfc92640d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Play\Kirby">
+      <UniqueIdentifier>{44494a88-d925-437f-8268-4b81b4b5765c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
