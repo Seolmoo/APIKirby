@@ -47,6 +47,9 @@
     <ClInclude Include="BossLevel.h">
       <Filter>Level\PlayLevel</Filter>
     </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>Global</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameKirby.cpp" />
@@ -95,6 +98,9 @@
     <ClCompile Include="BossLevel.cpp">
       <Filter>Level\PlayLevel</Filter>
     </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Title">
@@ -117,6 +123,9 @@
     </Filter>
     <Filter Include="Play\Kirby">
       <UniqueIdentifier>{44494a88-d925-437f-8268-4b81b4b5765c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global">
+      <UniqueIdentifier>{60bd7043-c258-4cd2-b5bf-6d5f7fd3f4d5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

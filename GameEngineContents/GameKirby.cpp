@@ -6,6 +6,10 @@
 #include <GameEngineBase/GameEngineDirectory.h>
 #include <GameEngineBase/GameEngineFile.h>
 #include <GameEngine/GameEngineImageManager.h>
+#include <GameEngineBase/GameEngineInput.h>
+#include "Level1.h"
+#include "Level2.h"
+#include "BossLevel.h"
 
 GameKirby::GameKirby()
 {
@@ -46,6 +50,14 @@ void GameKirby::GameInit()
 		GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
 	}
 
+	if (false == GameEngineInput::GetInst()->IsKey("Level1"))
+	{
+		GameEngineInput::GetInst()->CreateKey("Level1", '1');
+		GameEngineInput::GetInst()->CreateKey("Level2", '2');
+		GameEngineInput::GetInst()->CreateKey("BossLevel", '3');
+		GameEngineInput::GetInst()->CreateKey("HUBWorld", 'P');
+	}
+
 
 	GameEngineImage* KirbyImage = GameEngineImageManager::GetInst()->Find("Kirby_Idle_Right.bmp");
 	KirbyImage->Cut({ 48, 48 });
@@ -54,7 +66,9 @@ void GameKirby::GameInit()
 
 	CreateLevel<TitleLevel>("Title");
 	CreateLevel<HUBWorld>("HUBWorld");
-	// CreateLevel<EndingLevel>("Ending");
+	CreateLevel<Level1>("Level1");
+	CreateLevel<Level2>("Level2");
+	CreateLevel<BossLevel>("BossLevel");
 	ChangeLevel("HUBWorld");
 }
 

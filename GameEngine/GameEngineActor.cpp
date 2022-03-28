@@ -40,6 +40,19 @@ void GameEngineActor::DebugRectRender()
 	);
 }
 
+GameEngineRenderer* GameEngineActor::CreateRenderer(RenderPivot _PivotType /*= RenderPivot::CENTER*/, const float4& _PivotPos /*= { 0,0 }*/)
+{
+	GameEngineRenderer* NewRenderer = new GameEngineRenderer();
+
+	NewRenderer->SetActor(this);
+	// NewRenderer->SetImageScale();
+	NewRenderer->SetPivot(_PivotPos);
+	NewRenderer->SetType(_PivotType);
+
+	RenderList_.push_back(NewRenderer);
+	return NewRenderer;
+}
+
 GameEngineRenderer* GameEngineActor::CreateRenderer(
 	const std::string& _Image,
 	RenderPivot _PivotType /*= RenderPivot::CENTER*/,
@@ -50,7 +63,7 @@ GameEngineRenderer* GameEngineActor::CreateRenderer(
 
 	NewRenderer->SetActor(this);
 	NewRenderer->SetImage(_Image);
-	NewRenderer->SetImageScale();
+	
 	NewRenderer->SetPivot(_PivotPos);
 	NewRenderer->SetType(_PivotType);
 

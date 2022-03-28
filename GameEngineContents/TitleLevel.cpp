@@ -3,6 +3,7 @@
 #include "TitleIntro.h"
 #include "TitleBackGround.h"
 #include <GameEngine/GameEngineRenderer.h>
+#include <GameEngineBase/GameEngineInput.h>
 
 TitleLevel::TitleLevel()
 {
@@ -14,15 +15,19 @@ TitleLevel::~TitleLevel()
 
 void TitleLevel::Loading()
 {
-	// Actor를 만들어주기
-
-	// CreateActor<TitleBackGround>(0);
-
 	CreateActor<TitleIntro>(1);
+
+
+
 	
 }
 
 void TitleLevel::Update()
 {
-	// GameEngine::GlobalEngine().ChangeLevel("Play");
+	if (true == GameEngineInput::GetInst()->IsDown("LevelChange"))
+	{
+		GameEngine::GlobalEngine().ChangeLevel("HUBWorld");
+	}
+
+	// GameEngine::GlobalEngine().ChangeLevel("HUBWorld");
 }
