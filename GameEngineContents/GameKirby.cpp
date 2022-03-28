@@ -22,7 +22,7 @@ void GameKirby::GameInit()
 
 	// Ä¿ºñ
 	GameEngineDirectory ResourcesDir;
-	ResourcesDir.MoveParent("API_Kirby");
+	ResourcesDir.MoveParent("APIKirby");
 	ResourcesDir.Move("Kirby_Resources");
 	ResourcesDir.Move("Actor");
 	ResourcesDir.Move("Kirby");
@@ -36,7 +36,7 @@ void GameKirby::GameInit()
 	}
 
 	// Level
-	ResourcesDir.MoveParent("API_Kirby");
+	ResourcesDir.MoveParent("APIKirby");
 	ResourcesDir.Move("Kirby_Resources");
 	ResourcesDir.Move("Level");
 
