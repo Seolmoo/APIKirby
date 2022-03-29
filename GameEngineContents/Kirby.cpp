@@ -23,12 +23,12 @@ void Kirby::Start()
 	SetPosition(GameEngineWindow::GetScale().Half());
 	SetScale({ 100, 100 });
 
-	GameEngineRenderer* Render = CreateRenderer("Kirby_Idle_Right.bmp");
-	Render->SetIndex(0);
+	// 애니메이션을 하나라도 만들면 애니메이션도 재생된다.
+	GameEngineRenderer* Render = CreateRenderer();
+	// 루프
 	Render->SetTransColor(RGB(116, 154, 212));
-
-
-	// CreateRendererToScale("hpbar.bmp", float4(300.0f, 20.0f), RenderPivot::CENTER, float4(0.0f, -100.0f));
+	Render->CreateAnimation("Kirby_Walk_Right.bmp", "Walk_Right", 0, 3, 0.1f, true);
+	Render->ChangeAnimation("Walk_Right");
 
 	if (false == GameEngineInput::GetInst()->IsKey("MoveLeft"))
 	{

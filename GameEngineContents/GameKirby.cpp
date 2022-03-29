@@ -39,6 +39,11 @@ void GameKirby::GameInit()
 		{
 			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
 		}
+
+		{
+			GameEngineImage* Image = GameEngineImageManager::GetInst()->Find("Kirby_Walk_Right.bmp");
+			Image->CutCount( 4, 1 );
+		}
 	}
 
 	{
@@ -91,8 +96,8 @@ void GameKirby::GameInit()
 
 
 
-	GameEngineImage* KirbyImage = GameEngineImageManager::GetInst()->Find("Kirby_Idle_Right.bmp");
-	KirbyImage->Cut({ 48, 48 });
+	//GameEngineImage* KirbyImage = GameEngineImageManager::GetInst()->Find("Kirby_Idle_Right.bmp");
+	//KirbyImage->Cut({ 48, 48 });
 
 
 

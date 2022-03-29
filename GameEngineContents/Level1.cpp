@@ -22,12 +22,18 @@ void Level1::Loading()
 		GameEngine::GlobalEngine().ChangeLevel("HUBWorld");
 	}
 
-	PlayUI* Back = CreateActor<PlayUI>(0);
+	{
+		PlayUI* Actor = CreateActor<PlayUI>(0);
+	}
 
-	BackGround* Back = CreateActor<BackGround>(0);
-	Back->GetRenderer()->SetImage("Level1_1.bmp");
+	{
+		BackGround* Actor = CreateActor<BackGround>(0);
+		Actor->GetRenderer()->SetImage("Level1_1.bmp");
+	}
 
-	// CreateActor<Kirby>((int)ORDER::PLAYER);
+	{
+		CreateActor<Kirby>((int)ORDER::PLAYER);
+	}
 
 }
 void Level1::Update() {
