@@ -1,17 +1,11 @@
 #include "HUBWorld.h"
 #include "Kirby.h"
 #include "BackGround.h"
+#include "ContentsEnums.h"
 #include <GameEngineBase/GameEngineInput.h>
 #include <GameEngine/GameEngine.h>
 #include <GameEngine/GameEngineRenderer.h>
 
-enum class ORDER
-{
-	BACKGROUND,
-	PLAYER,
-	MONSTER,
-
-};
 
 HUBWorld::HUBWorld()
 {

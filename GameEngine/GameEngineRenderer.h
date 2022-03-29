@@ -49,6 +49,11 @@ public:
 		RenderScale_ = _Scale;
 	}
 
+	inline GameEngineImage* GetImage()
+	{
+		return Image_;
+	}
+
 	void SetImage(const std::string& _Name);
 	
 	// 

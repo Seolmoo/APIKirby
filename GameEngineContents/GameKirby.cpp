@@ -24,31 +24,61 @@ void GameKirby::GameInit()
 	// 원본사이즈 * 3 
 	GameEngineWindow::GetInst().SetWindowScaleAndPosition({ 300, 10 }, { 768, 720 });
 
-	// 커비
-	GameEngineDirectory ResourcesDir;
-	ResourcesDir.MoveParent("APIKirby");
-	ResourcesDir.Move("Kirby_Resources");
-	ResourcesDir.Move("Actor");
-	ResourcesDir.Move("Kirby");
-
-	// 폴더안에 모든 이미지 파일을 찾는다.
-	std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
-
-	for (size_t i = 0; i < AllImageFileList.size(); i++)
 	{
-		GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
+		// 커비
+		GameEngineDirectory ResourcesDir;
+		ResourcesDir.MoveParent("APIKirby");
+		ResourcesDir.Move("Kirby_Resources");
+		ResourcesDir.Move("Actor");
+		ResourcesDir.Move("Kirby");
+
+		// 폴더안에 모든 이미지 파일을 찾는다.
+		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
+
+		for (size_t i = 0; i < AllImageFileList.size(); i++)
+		{
+			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
+		}
 	}
 
-	// Level
-	ResourcesDir.MoveParent("APIKirby");
-	ResourcesDir.Move("Kirby_Resources");
-	ResourcesDir.Move("Level");
-
-	AllImageFileList = ResourcesDir.GetAllFile("Bmp");
-	for (size_t i = 0; i < AllImageFileList.size(); i++)
 	{
-		GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
+		// 커비
+		GameEngineDirectory ResourcesDir;
+		ResourcesDir.MoveParent("APIKirby");
+		ResourcesDir.Move("Kirby_Resources");
+		ResourcesDir.Move("Level");
+
+		// 폴더안에 모든 이미지 파일을 찾는다.
+		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
+
+		for (size_t i = 0; i < AllImageFileList.size(); i++)
+		{
+			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
+		}
 	}
+
+	{
+		// 커비
+		GameEngineDirectory ResourcesDir;
+		ResourcesDir.MoveParent("APIKirby");
+		ResourcesDir.Move("Kirby_Resources");
+		ResourcesDir.Move("UI");
+
+		// 폴더안에 모든 이미지 파일을 찾는다.
+		std::vector<GameEngineFile> AllImageFileList = ResourcesDir.GetAllFile("Bmp");
+
+		for (size_t i = 0; i < AllImageFileList.size(); i++)
+		{
+			GameEngineImageManager::GetInst()->Load(AllImageFileList[i].GetFullPath());
+		}
+	}
+
+
+
+
+
+
+
 
 	if (false == GameEngineInput::GetInst()->IsKey("Level1"))
 	{
@@ -57,6 +87,8 @@ void GameKirby::GameInit()
 		GameEngineInput::GetInst()->CreateKey("BossLevel", '3');
 		GameEngineInput::GetInst()->CreateKey("HUBWorld", 'P');
 	}
+
+
 
 
 	GameEngineImage* KirbyImage = GameEngineImageManager::GetInst()->Find("Kirby_Idle_Right.bmp");
@@ -69,7 +101,7 @@ void GameKirby::GameInit()
 	CreateLevel<Level1>("Level1");
 	CreateLevel<Level2>("Level2");
 	CreateLevel<BossLevel>("BossLevel");
-	ChangeLevel("HUBWorld");
+	ChangeLevel("Level1");
 }
 
 void GameKirby::GameLoop()

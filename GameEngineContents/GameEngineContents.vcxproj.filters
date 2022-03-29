@@ -50,6 +50,10 @@
     <ClInclude Include="BackGround.h">
       <Filter>Global</Filter>
     </ClInclude>
+    <ClInclude Include="ContentsEnums.h" />
+    <ClInclude Include="PlayUI.h">
+      <Filter>Global</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameKirby.cpp" />
@@ -99,6 +103,9 @@
       <Filter>Level\PlayLevel</Filter>
     </ClCompile>
     <ClCompile Include="BackGround.cpp">
+      <Filter>Global</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayUI.cpp">
       <Filter>Global</Filter>
     </ClCompile>
   </ItemGroup>

@@ -159,6 +159,7 @@
     <ClInclude Include="BossLevel.h" />
     <ClInclude Include="BrontoBurt.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="ContentsEnums.h" />
     <ClInclude Include="EndingCredit.h" />
     <ClInclude Include="EndingLevel.h" />
     <ClInclude Include="GameKirby.h" />
@@ -167,6 +168,10 @@
     <ClInclude Include="Kirby.h" />
     <ClInclude Include="Level1.h" />
     <ClInclude Include="Level2.h" />
+    <ClInclude Include="PlayUI.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="TitleBackGround.h" />
     <ClInclude Include="TitleIntro.h" />
     <ClInclude Include="TitleLevel.h" />
@@ -186,6 +191,10 @@
     <ClCompile Include="Kirby.cpp" />
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="Level2.cpp" />
+    <ClCompile Include="PlayUI.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="TitleBackGround.cpp" />
     <ClCompile Include="TitleIntro.cpp" />
     <ClCompile Include="TitleLevel.cpp" />
