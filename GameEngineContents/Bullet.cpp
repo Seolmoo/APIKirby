@@ -16,9 +16,15 @@ Bullet::~Bullet()
 
 void Bullet::Start()
 {
-	GameEngineRenderer* Bullet = CreateRenderer("Kirby_Bullet1.bmp");
-	Bullet->SetTransColor(RGB(116, 154, 212));
-	
+	GameEngineImage* StarBullet = GameEngineImageManager::GetInst()->Find("Kirby_StarBullet.bmp");
+	StarBullet->CutCount(4, 1);
+
+	GameEngineRenderer* StarBulletRender = CreateRenderer();
+	// ·çÇÁ
+
+	StarBulletRender->CreateAnimation("Kirby_StarBullet.bmp", "StarBullet", 0, 3, 0.1f, true);
+	StarBulletRender->ChangeAnimation("StarBullet");
+	StarBulletRender->SetTransColor(RGB(116, 154, 212));
 	Death(2.0f);
 }
 

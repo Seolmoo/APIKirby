@@ -22,7 +22,7 @@ GameKirby::~GameKirby()
 void GameKirby::GameInit()
 {
 	// 원본사이즈 * 3 
-	GameEngineWindow::GetInst().SetWindowScaleAndPosition({ 300, 10 }, { 768, 720 });
+	GameEngineWindow::GetInst().SetWindowScaleAndPosition({ 300, 10 }, { 768, 672 });
 
 	{
 		// 커비

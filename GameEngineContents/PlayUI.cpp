@@ -22,7 +22,7 @@ void PlayUI::Start()
 	
 	// 화면 하단 ui 랜더를 만든다.
 	{
-		GameEngineRenderer* Renderer = CreateRenderer("PlayBotUI.bmp");
+		GameEngineRenderer* Renderer = CreateRenderer("HUD_Base.bmp");
 		float4 BotUIPivot = GameEngineWindow::GetScale().Half();
 		BotUIPivot.x = 0.0f;
 		BotUIPivot.y -= Renderer->GetImage()->GetScale().Half().y;
