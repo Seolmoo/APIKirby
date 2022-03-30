@@ -42,7 +42,9 @@ void Level1::Loading()
 	}
 
 	{
-		CreateActor<Kirby>((int)ORDER::PLAYER);
+		Kirby* Player = CreateActor<Kirby>((int)ORDER::PLAYER);
+		// Player->SetPosition(GameEngineWindow::GetScale().Half());
+		Player->SetPosition({100.0f, 100.0f});
 	}
 
 }

@@ -3,6 +3,7 @@
 
 
 GameEngineLevel::GameEngineLevel()
+	: CameraPos_(float4::ZERO)
 {
 }
 

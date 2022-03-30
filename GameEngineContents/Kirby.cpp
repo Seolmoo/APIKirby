@@ -1,6 +1,7 @@
 #include "Kirby.h"
 #include <GameEngine/GameEngine.h>
 #include <GameEngineBase/GameEngineWindow.h>
+#include <GameEngine/GameEngineImage.h>
 #include <GameEngine/GameEngineImageManager.h>
 #include <GameEngineBase/GameEngineInput.h>
 #include <GameEngineBase/GameEngineTime.h>
@@ -11,6 +12,7 @@
 
 Kirby::Kirby()
 	: Speed_(150.0f)
+	, Gravity_(100.0f)
 {
 }
 
@@ -20,7 +22,7 @@ Kirby::~Kirby()
 
 void Kirby::Start()
 {
-	SetPosition(GameEngineWindow::GetScale().Half());
+	
 	SetScale({ 100, 100 });
 
 	// 애니메이션을 하나라도 만들면 애니메이션도 재생된다.
@@ -45,32 +47,71 @@ void Kirby::Start()
 
 void Kirby::Update()
 {
+	MapColImage_ = GameEngineImageManager::GetInst()->Find("Level1_1ColMap.bmp");
+
+	if (nullptr == MapColImage_)
+	{
+		MsgBoxAssert("맵 충돌용 이미지를 찾지 못했습니다.");
+	}
+
+	float4 CheckPos;
+	float4 MoveDir = float4::ZERO;
+
+
 	if (true == GameEngineInput::GetInst()->IsPress("MoveRight"))
 	{
-		// 1.0F * 0.001101F
-		SetMove(float4::RIGHT * GameEngineTime::GetDeltaTime() * Speed_);
+		MoveDir = float4::RIGHT;
+		
 	}
 	if (true == GameEngineInput::GetInst()->IsPress("MoveLeft"))
 	{
-		SetMove(float4::LEFT * GameEngineTime::GetDeltaTime() * Speed_);
+		MoveDir = float4::LEFT;
 	}
-	 
 
 	if (true == GameEngineInput::GetInst()->IsPress("MoveUp"))
 	{
-		SetMove(float4::UP * GameEngineTime::GetDeltaTime() * Speed_);
+		MoveDir = float4::UP;
 	}
 
 	if (true == GameEngineInput::GetInst()->IsPress("MoveDown"))
 	{
-		SetMove(float4::DOWN * GameEngineTime::GetDeltaTime() * Speed_);
+		MoveDir = float4::DOWN;
 	}
 
-	if (true == GameEngineInput::GetInst()->IsDown("Fire"))
 	{
-		Bullet* Ptr = GetLevel()->CreateActor<Bullet>();
-		Ptr->SetPosition(GetPosition());
+		float4 NextPos = GetPosition() + (MoveDir * GameEngineTime::GetDeltaTime()* Speed_);
+		float4 CheckPos = NextPos + float4(0.0f, 20.0f);
+
+		int Color = MapColImage_->GetImagePixel(CheckPos);
+
+		if (RGB(0, 0, 0) != Color)
+		{
+			SetMove(MoveDir * GameEngineTime::GetDeltaTime() * Speed_);
+		}
 	}
+
+	GetLevel()->SetCameraPos(GetPosition() - GameEngineWindow::GetInst().GetScale().Half());
+
+	//{
+	//	// 내포지션에서 
+	//	int Color = MapColImage_->GetImagePixel(GetPosition() + float4(0.0f, 20.0f));
+
+	//	AccGravity_ += GameEngineTime::GetDeltaTime() * Gravity_;
+	//	if (RGB(0, 0, 0) == Color)
+	//	{
+	//		AccGravity_ = 0.0f;
+	//	}
+	//	SetMove(float4::DOWN * GameEngineTime::GetDeltaTime() * AccGravity_);
+	//}
+
+
+	//if (true == GameEngineInput::GetInst()->GetTime("Fire"))
+	//{
+	//	Bullet* Ptr = GetLevel()->CreateActor<Bullet>();
+	//	Ptr->SetPosition(GetPosition());
+	//}
+
+
 }
 
 // 렌더러가 다 돌아가고 렌더링이 됨

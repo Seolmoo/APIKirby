@@ -2,6 +2,7 @@
 #include <list>
 #include <map>
 #include <GameEngineBase/GameEngineNameObject.h>
+#include <GameEngineBase/GameEngineMath.h>
 
 class GameEngine;
 class GameEngineActor;
@@ -52,6 +53,21 @@ public:
 		return NewActor;
 	}
 
+	inline float4 GetCameraPos() 
+	{
+		return CameraPos_;
+	}
+
+	inline void MoveCameraPos(const float4& _Value)
+	{
+		CameraPos_ += _Value;
+	}
+
+	inline void SetCameraPos(const float4& _Value )
+	{
+		CameraPos_  = _Value;
+	}
+
 
 protected:
 	// 시점함수
@@ -67,6 +83,8 @@ protected:
 private:
 	// std::vector로 관리하는게 더 좋다고 생각..
 	std::map<int, std::list<GameEngineActor*>> AllActor_;
+
+	float4 CameraPos_;
 
 	void ActorUpdate();
 	void ActorRender();

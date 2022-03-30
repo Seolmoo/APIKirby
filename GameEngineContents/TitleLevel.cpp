@@ -16,10 +16,6 @@ TitleLevel::~TitleLevel()
 void TitleLevel::Loading()
 {
 	CreateActor<TitleIntro>(1);
-
-
-
-	
 }
 
 void TitleLevel::Update()
@@ -28,6 +24,4 @@ void TitleLevel::Update()
 	{
 		GameEngine::GlobalEngine().ChangeLevel("HUBWorld");
 	}
-
-	// GameEngine::GlobalEngine().ChangeLevel("HUBWorld");
 }
