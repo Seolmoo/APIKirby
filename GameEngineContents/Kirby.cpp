@@ -11,7 +11,7 @@
 #include "Bullet.h"						// 총알을 만들고 싶다.
 
 Kirby::Kirby()
-	: Speed_(150.0f)
+	: Speed_(300.0f)
 	, Gravity_(100.0f)
 {
 }
@@ -91,6 +91,32 @@ void Kirby::Update()
 	}
 
 	GetLevel()->SetCameraPos(GetPosition() - GameEngineWindow::GetInst().GetScale().Half());
+
+
+	if (0 > GetLevel()->GetCameraPos().x)
+	{
+		float4 CurCameraPos = GetLevel()->GetCameraPos();
+		CurCameraPos.x = 0;
+		GetLevel()->SetCameraPos(CurCameraPos);
+	}
+	if (0 > GetLevel()->GetCameraPos().y)
+	{
+		float4 CurCameraPos = GetLevel()->GetCameraPos();
+		CurCameraPos.y = 0;
+		GetLevel()->SetCameraPos(CurCameraPos);
+	}
+	if (2300 <= GetLevel()->GetCameraPos().x)
+	{
+		float4 CurCameraPos = GetLevel()->GetCameraPos();
+		CurCameraPos.x = 0;
+		GetLevel()->SetCameraPos(CurCameraPos);
+	}
+	if (504 > GetLevel()->GetCameraPos().y)
+	{
+		float4 CurCameraPos = GetLevel()->GetCameraPos();
+		CurCameraPos.y = 0;
+		GetLevel()->SetCameraPos(CurCameraPos);
+	}
 
 	//{
 	//	// 내포지션에서 

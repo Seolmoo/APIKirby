@@ -60,6 +60,8 @@ public:
 	// 
 	void SetIndex(size_t _Index, const float4& _Scale = {-1, -1});
 
+	
+	bool IsCameraEffect_;
 
 
 protected:
@@ -77,7 +79,7 @@ private:
 	float4 RenderImagePivot_;
 	unsigned int TransColor_;
 
-	bool IsCameraEffect_;
+	
 
 
 
