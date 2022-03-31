@@ -6,6 +6,7 @@
 #include <GameEngineBase/GameEngineInput.h>
 #include <GameEngineBase/GameEngineTime.h>
 #include <GameEngine/GameEngineRenderer.h>
+#include <GameEngine/GameEngineCollision.h>
 
 #include <GameEngine/GameEngineLevel.h> // 레벨을 통해서
 #include "Bullet.h"						// 총알을 만들고 싶다.
@@ -25,6 +26,10 @@ void Kirby::Start()
 	
 	SetScale({ 100, 100 });
 
+	PlayerCollision = CreateCollision("PlayerHitBox", {100, 100});
+
+	// GetCollision("PlayerHitBox");
+
 	// 애니메이션을 하나라도 만들면 애니메이션도 재생된다.
 	GameEngineRenderer* Render = CreateRenderer();
 	// 루프
@@ -41,8 +46,9 @@ void Kirby::Start()
 		GameEngineInput::GetInst()->CreateKey("MoveDown", 'S');
 		GameEngineInput::GetInst()->CreateKey("Jump", VK_LSHIFT);
 		GameEngineInput::GetInst()->CreateKey("Fire", VK_SPACE);
-		// VK_LBUTTON;
 	}
+
+
 }
 
 void Kirby::Update()
@@ -105,22 +111,38 @@ void Kirby::Update()
 		CurCameraPos.y = 0;
 		GetLevel()->SetCameraPos(CurCameraPos);
 	}
-	if (2300 <= GetLevel()->GetCameraPos().x)
+
+	float MapSizeX = 3048;
+	float MapSizeY = 504;
+	float CameraRectX = 768;
+	float CameraRectY = 504;
+
+
+	if (MapSizeX <= GetLevel()->GetCameraPos().x + CameraRectX)
 	{
 		float4 CurCameraPos = GetLevel()->GetCameraPos();
-		CurCameraPos.x = 0;
+		CurCameraPos.x = GetLevel()->GetCameraPos().x - (GetLevel()->GetCameraPos().x + CameraRectX - MapSizeX);;
 		GetLevel()->SetCameraPos(CurCameraPos);
 	}
-	if (504 > GetLevel()->GetCameraPos().y)
+
+	// 
+
+	if (MapSizeY <= (GetLevel()->GetCameraPos().y + CameraRectY))
 	{
 		float4 CurCameraPos = GetLevel()->GetCameraPos();
-		CurCameraPos.y = 0;
+		CurCameraPos.y = GetLevel()->GetCameraPos().y - (GetLevel()->GetCameraPos().y + CameraRectY - MapSizeY);
 		GetLevel()->SetCameraPos(CurCameraPos);
+	}
+
+	if (true == PlayerCollision->Collision("Door"))
+	{
+
 	}
 
 	//{
 	//	// 내포지션에서 
-	//	int Color = MapColImage_->GetImagePixel(GetPosition() + float4(0.0f, 20.0f));
+	// int Color = MapColImage_->GetImagePixel(GetPosition() + float4(0.0f, 20.0f));
+
 
 	//	AccGravity_ += GameEngineTime::GetDeltaTime() * Gravity_;
 	//	if (RGB(0, 0, 0) == Color)

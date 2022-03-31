@@ -60,8 +60,15 @@ public:
 	// 
 	void SetIndex(size_t _Index, const float4& _Scale = {-1, -1});
 
-	
-	bool IsCameraEffect_;
+	void CameraEffectOff() 
+	{
+		IsCameraEffect_ = false;
+	}
+
+	void CameraEffectOn()
+	{
+		IsCameraEffect_ = true;
+	}
 
 
 protected:
@@ -70,6 +77,7 @@ protected:
 private:
 	friend class FrameAnimation;
 
+	bool IsCameraEffect_;
 	GameEngineImage* Image_;
 	RenderPivot PivotType_; // ºæ≈Õ / bot
 	RenderScaleMode ScaleMode_;

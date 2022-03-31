@@ -1,5 +1,6 @@
 #include "GameEngineLevel.h"
 #include "GameEngineActor.h"
+#include "GameEngineCollision.h"
 
 
 GameEngineLevel::GameEngineLevel()
@@ -138,4 +139,13 @@ void GameEngineLevel::ActorRelease()
 			++StartActor;
 		}
 	}
+}
+
+
+
+void GameEngineLevel::AddCollision(const std::string& _GroupName
+	, GameEngineCollision* _Collision) 
+{
+	// 찾아서 없으면 만드는 것까지.
+	AllCollision_[_GroupName].push_back(_Collision);
 }

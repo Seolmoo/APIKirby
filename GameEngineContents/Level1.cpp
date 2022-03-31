@@ -19,6 +19,8 @@ Level1::~Level1()
 
 void Level1::Loading() 
 {
+	// PlayMove("aaa.avi");
+	
 	if (true == GameEngineInput::GetInst()->IsDown("HUBWorld"))
 	{
 		GameEngine::GlobalEngine().ChangeLevel("HUBWorld");

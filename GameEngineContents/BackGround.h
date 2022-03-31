@@ -4,6 +4,8 @@
 class GameEngineRenderer;
 class BackGround : public GameEngineActor
 {
+	// static BackGround* CurBackGround;
+
 public:
 	// constrcuter destructer
 	BackGround();

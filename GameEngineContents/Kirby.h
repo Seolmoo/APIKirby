@@ -3,6 +3,7 @@
 
 // Ό³Έν :
 class GameEngineImage;
+class GameEngineCollision;
 class Kirby : public GameEngineActor
 {
 public:
@@ -23,6 +24,8 @@ private:
 	float Gravity_;
 	float AccGravity_;
 	GameEngineImage* MapColImage_;
+
+	GameEngineCollision* PlayerCollision;
 
 	void Start() override;
 	void Update() override;
