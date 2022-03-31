@@ -134,10 +134,10 @@ void Kirby::Update()
 		GetLevel()->SetCameraPos(CurCameraPos);
 	}
 
-	if (true == PlayerCollision->Collision("Door"))
-	{
+	//if (true == PlayerCollision->Collision("Door"))
+	//{
 
-	}
+	//}
 
 	//{
 	//	// 내포지션에서 

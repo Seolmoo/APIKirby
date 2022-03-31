@@ -8,7 +8,7 @@ bool (*CollisionCheckArray[static_cast<int>(CollisionType::Max)][static_cast<int
 
 bool RectToRect(GameEngineCollision* _Left, GameEngineCollision* _Right)
 {
-
+	return false;
 }
 
 GameEngineCollision::GameEngineCollision()
