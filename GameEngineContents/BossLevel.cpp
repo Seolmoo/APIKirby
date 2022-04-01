@@ -16,7 +16,7 @@ void BossLevel::Loading()
 void BossLevel::Update() {
 	if (true == GameEngineInput::GetInst()->IsDown("HUBWorld"))
 	{
-		GameEngine::GlobalEngine().ChangeLevel("HUBWorld");
+		GameEngine::GetInst().ChangeLevel("HUBWorld");
 	}
 }
 

@@ -1,4 +1,5 @@
 #pragma once
+#include "GameEngineLevel.h"
 #include <GameEngineBase/GameEngineNameObject.h>
 #include <GameEngineBase/GameEngineUpdateObject.h>
 #include <GameEngineBase/GameEngineMath.h>
@@ -30,10 +31,16 @@ public:
 		return Level_;
 	}
 
+	inline float4 GetCameraEffectPosition()
+	{
+		return Position_ - GetLevel()->GetCameraPos();
+	}
+
 	inline float4 GetPosition()
 	{
 		return Position_;
 	}
+
 	inline float4 GetScale()
 	{
 		return Scale_;
@@ -61,6 +68,8 @@ protected:
 	virtual void Update() {}
 	// 지속적으로 게임이 실행될때 호출된다.
 	virtual void Render() {}
+
+	void Release();
 
 	void DebugRectRender();
 

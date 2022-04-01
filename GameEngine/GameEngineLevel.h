@@ -92,6 +92,7 @@ private:
 
 	void ActorUpdate();
 	void ActorRender();
+	void CollisionDebugRender();
 	void ActorRelease();
 
 private:

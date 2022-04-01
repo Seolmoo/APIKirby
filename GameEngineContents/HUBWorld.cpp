@@ -26,17 +26,17 @@ void HUBWorld::Update()
 {
 	if (true == GameEngineInput::GetInst()->IsDown("Level1"))
 	{
-		GameEngine::GlobalEngine().ChangeLevel("Level1");
+		GameEngine::GetInst().ChangeLevel("Level1");
 	}
 
 	if (true == GameEngineInput::GetInst()->IsDown("Level2"))
 	{
-		GameEngine::GlobalEngine().ChangeLevel("Level2");
+		GameEngine::GetInst().ChangeLevel("Level2");
 	}
 
 	if (true == GameEngineInput::GetInst()->IsDown("BossLevel"))
 	{
-		GameEngine::GlobalEngine().ChangeLevel("BossLevel");
+		GameEngine::GetInst().ChangeLevel("BossLevel");
 	}
 }
 

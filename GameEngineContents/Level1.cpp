@@ -23,7 +23,7 @@ void Level1::Loading()
 	
 	if (true == GameEngineInput::GetInst()->IsDown("HUBWorld"))
 	{
-		GameEngine::GlobalEngine().ChangeLevel("HUBWorld");
+		GameEngine::GetInst().ChangeLevel("HUBWorld");
 	}
 
 	{
@@ -39,6 +39,10 @@ void Level1::Loading()
 		BackActor.y = (Actor->GetRenderer()->GetImage()->GetScale().Half().y) - (GameEngineWindow::GetScale().Half().y);
 
 		Actor->GetRenderer()->SetPivot(BackActor);
+
+		Actor->CreateCollision("Door", { 100, 100 }, {0, 0});
+
+		Actor->CreateCollision("Wall", { 100, 100 }, { 0, -200 });
 		// 가로길이의 반만큼
 
 	}

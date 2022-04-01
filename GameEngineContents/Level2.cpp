@@ -18,7 +18,7 @@ void Level2::Update()
 {
 	if (true == GameEngineInput::GetInst()->IsDown("HUBWorld"))
 	{
-		GameEngine::GlobalEngine().ChangeLevel("HUBWorld");
+		GameEngine::GetInst().ChangeLevel("HUBWorld");
 	}
 }
 

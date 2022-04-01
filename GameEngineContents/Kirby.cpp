@@ -134,6 +134,8 @@ void Kirby::Update()
 		GetLevel()->SetCameraPos(CurCameraPos);
 	}
 
+	WallCheck();
+	DoorCheck();
 	//if (true == PlayerCollision->Collision("Door"))
 	//{
 
@@ -165,4 +167,28 @@ void Kirby::Update()
 // ∑ª¥ı∑Ø∞° ¥Ÿ µπæ∆∞°∞Ì ∑ª¥ı∏µ¿Ã µ 
 void Kirby::Render()
 {
+}
+
+
+void Kirby::WallCheck() 
+{
+	std::vector<GameEngineCollision*> ColList;
+
+	if (true == PlayerCollision->CollisionResult("Wall", ColList, CollisionType::Rect, CollisionType::Rect))
+	{
+		for (size_t i = 0; i < ColList.size(); i++)
+		{
+			ColList[i]->Death();
+		}
+	}
+}
+
+void Kirby::DoorCheck()
+{
+
+
+	if (true == PlayerCollision->CollisionCheck("Door", CollisionType::Rect, CollisionType::Rect))
+	{
+		// GameEngine::GetInst().ChangeLevel("aaaa");
+	}
 }
