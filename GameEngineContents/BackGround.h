@@ -17,7 +17,7 @@ public:
 	BackGround& operator=(const BackGround& _Other) = delete;
 	BackGround& operator=(BackGround&& _Other) noexcept = delete;
 
-	GameEngineRenderer* GetRenderer() 
+	GameEngineRenderer* GetRenderer()
 	{
 		return Image_;
 	};

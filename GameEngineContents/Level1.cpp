@@ -8,6 +8,7 @@
 #include "PlayUI.h"
 #include <GameEngineBase/GameEngineWindow.h>
 #include <GameEngine/GameEngineImageManager.h>
+#include <GameEngine/GameEngineCollision.h>
 
 Level1::Level1()
 {
@@ -35,14 +36,14 @@ void Level1::Loading()
 		Actor->GetRenderer()->SetImage("Level1_1.bmp");
 
 		float4 BackActor = {};
-		BackActor.x = (Actor->GetRenderer()->GetImage()->GetScale().Half().x) - (GameEngineWindow::GetScale().Half().x);
-		BackActor.y = (Actor->GetRenderer()->GetImage()->GetScale().Half().y) - (GameEngineWindow::GetScale().Half().y);
+		BackActor.x = (Actor->GetRenderer()->GetImage()->GetScale().Half().x);
+		BackActor.y = (Actor->GetRenderer()->GetImage()->GetScale().Half().y);
 
 		Actor->GetRenderer()->SetPivot(BackActor);
 
-		Actor->CreateCollision("Door", { 100, 100 }, {0, 0});
+		Actor->CreateCollision("Door", { 100, 100 }, {500, 300});
 
-		Actor->CreateCollision("Wall", { 100, 100 }, { 0, -200 });
+		Actor->CreateCollision("Wall", { 100, 100 }, { 300, 200 });
 		// 가로길이의 반만큼
 
 	}
@@ -60,4 +61,5 @@ void Level1::Update() {
 void Level1::LevelChangeStart() 
 {
 }
+
 

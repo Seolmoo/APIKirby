@@ -47,7 +47,7 @@ void GameKirby::GameInit()
 	}
 
 	{
-		// 커비
+		// 레벨
 		GameEngineDirectory ResourcesDir;
 		ResourcesDir.MoveParent("APIKirby");
 		ResourcesDir.Move("Kirby_Resources");

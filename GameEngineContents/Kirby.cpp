@@ -186,9 +186,8 @@ void Kirby::WallCheck()
 void Kirby::DoorCheck()
 {
 
-
 	if (true == PlayerCollision->CollisionCheck("Door", CollisionType::Rect, CollisionType::Rect))
 	{
-		// GameEngine::GetInst().ChangeLevel("aaaa");
+		GameEngine::GetInst().ChangeLevel("Level2");
 	}
 }
