@@ -31,11 +31,15 @@ void Kirby::Start()
 	// GetCollision("PlayerHitBox");
 
 	// 애니메이션을 하나라도 만들면 애니메이션도 재생된다.
-	GameEngineRenderer* Render = CreateRenderer();
+	PlayerAnimationRender = CreateRenderer();
 	// 루프
-	Render->SetTransColor(RGB(116, 154, 212));
-	Render->CreateAnimation("Kirby_Walk_Right.bmp", "Walk_Right", 0, 3, 0.1f, true);
-	Render->ChangeAnimation("Walk_Right");
+	PlayerAnimationRender->SetTransColor(RGB(116, 154, 212));
+	PlayerAnimationRender->CreateAnimation("Kirby_Walk_Right.bmp", "Walk_Right", 0, 3, 0.1f, true);
+	PlayerAnimationRender->CreateAnimation("Kirby_Walk_Right.bmp", "Walk_Left", 0, 3, 0.1f, true);
+	PlayerAnimationRender->ChangeAnimation("Walk_Right");
+
+	AnimationName = "Walk_";
+	CurDir_ = PlayerDir::Right;
 
 	if (false == GameEngineInput::GetInst()->IsKey("MoveLeft"))
 	{
@@ -53,6 +57,9 @@ void Kirby::Start()
 
 void Kirby::Update()
 {
+	DirAnimationCheck();
+	PlayerStateUpdate();
+
 	MapColImage_ = GameEngineImageManager::GetInst()->Find("Level1_1ColMap.bmp");
 
 	if (nullptr == MapColImage_)
@@ -190,4 +197,37 @@ void Kirby::DoorCheck()
 	{
 		GameEngine::GetInst().ChangeLevel("Level2");
 	}
+}
+
+void Kirby::DirAnimationCheck()
+{
+	std::string ChangeName;
+
+	PlayerDir CheckDir_ = CurDir_;
+	std::string ChangeDirText = "Right";
+
+	if (true == GameEngineInput::GetInst()->IsPress("MoveRight"))
+	{
+		CheckDir_ = PlayerDir::Right;
+		ChangeDirText = "Right";
+	}
+
+
+	if (true == GameEngineInput::GetInst()->IsPress("MoveLeft"))
+	{
+		CheckDir_ = PlayerDir::Left;
+		ChangeDirText = "Left";
+	}
+
+	if (CheckDir_ != CurDir_)
+	{
+		PlayerAnimationRender->ChangeAnimation(AnimationName + ChangeDirText);
+	}
+
+}
+
+
+void Kirby::PlayerStateUpdate()
+{
+
 }

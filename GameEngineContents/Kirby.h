@@ -1,6 +1,12 @@
 #pragma once
 #include <GameEngine/GameEngineActor.h>
 
+enum PlayerDir 
+{
+	Left,
+	Right,
+};
+
 // Ό³Έν :
 class GameEngineImage;
 class GameEngineCollision;
@@ -18,6 +24,13 @@ public:
 	Kirby& operator=(Kirby&& _Other) noexcept = delete;
 
 protected:
+	GameEngineRenderer* PlayerAnimationRender;
+	PlayerDir CurDir_;
+	std::string AnimationName;
+
+	void DirAnimationCheck();
+	void PlayerStateUpdate();
+
 
 private:
 	float Speed_;
